@@ -25,9 +25,9 @@ else
 {
     die('Could not connect: ' . mysql_error());
 }
-*/
 
-//================ The structural way ================
+
+//================ The procedural way ================
 // Here i in the MySQLi stands for improved.
 $con=mysqli_connect($db_host, $db_username, $db_password,$db_database);
 
@@ -35,3 +35,12 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
+
+*/
+//=================== The Object Oriented Way ====================
+// We here at A M Reddy's prefer this way
+$con=new mysqli($db_host, $db_username, $db_password,$db_database);
+
+if ($con->connect_error) {
+    die('Connect Error (' . $con->connect_errno . ') '. $con->connect_error);
+}
